@@ -4,8 +4,8 @@ import hashlib
 
 #creamos las conexiones
 connect = conection.conect()
-database = connect[0]
-cursor = connect[1]
+# database = connect[0]
+# cursor = connect[1]
 
 #creamos la clase usuario
 class User:
@@ -27,11 +27,11 @@ class User:
         sql = "INSERT INTO usuarios VALUES (null, %s, %s, %s, %s, %s)"
         User = (self.name, self.lastName, self.email, encryp.hexdigest(), date)
 
-        cursor.execute(sql, User)
-        database.commit()
-        result = [cursor.rowcount,self]
+        # cursor.execute(sql, User)
+        # database.commit()
+        # result = [cursor.rowcount,self]
 
-        return result
+        #return result
 
     def identify(self):
         #cifrar la contraseña para que sea la misma
@@ -41,9 +41,9 @@ class User:
         #creamos la sentencia para ver que sean iguales
         sql ="SELECT * FROM usuarios WHERE email = %s AND password = %s"
         User=(self.email, encryp.hexdigest())
-        cursor.execute(sql, User)
+        # cursor.execute(sql, User)
 
-        #fetchone es para que nos retorne solo una fila(?) de la tabla
-        result = cursor.fetchone()
+        # #fetchone es para que nos retorne solo una fila(?) de la tabla
+        # result = cursor.fetchone()
 
-        return result
+        #return result

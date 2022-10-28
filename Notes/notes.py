@@ -1,42 +1,91 @@
-import User.conection as conection
+import conection as conection
 
-#creamos las conexiones
+# creamos las conexiones
 connect = conection.conect()
-database = connect[0]
-cursor = connect[1]
+# database = connect[0]
+# cursor = connect[1]
+
 
 class Note:
-    def __init__(self, usuario_id, titulo="", descripcion=""):
-        self.usuario_id = usuario_id
-        self.titulo = titulo
-        self.descripcion = descripcion
+    def __init__(self, Nombre="", AM="", AP="", RFC="", Sueldo="",Sexo="", Materias="", TelC="", TelCasa="", Pasatiempos="", NombreCreador="", TesisAM="", TesisNombre=""):
+        self.Nombre = Nombre
+        self.AP = AP
+        self.AM = AM
+        self.AP = AP
+        self.RFC = RFC
+        self.Sueldo = Sueldo
+        self.Sexo = Sexo
+        self.Materias = Materias
+        self.TelC = TelC
+        self.TelCasa = TelCasa
+        self.Pasatiempos = Pasatiempos
+        self.NombreCreador = NombreCreador
+        self.TesisAM = TesisAM
+        self.TesisNombre = TesisNombre
 
     def save(self):
-        sql = "INSERT INTO notas VALUES (null, %s, %s, %s, NOW())"
-        note = (self.usuario_id, self.titulo, self.descripcion)
 
-        cursor.execute(sql, note)
-        database.commit()
-        return [cursor.rowcount,self]
+        x = connect.find().sort('_id', -1)[0]
+
+        x = int(x['_id'])+1
+
+        x = str(x)
+
+        # db.micoleccion.find().sort({$natural:-1}).limit(1);
+        mydict ={
+                    "_id": x,
+                    "Nombre": {
+                        "pila": self.Nombre,
+                        "AP": self.AP,
+                        "AM": self.AM
+                    },
+                    "RFC": self.RFC,
+                    "Sueldo": self.Sueldo,
+                    "Sexo": self.Sexo,
+                    "Materias": self.Materias,
+                    "Telefonos": {
+                        "celular": self.TelC,
+                        "casa": self.TelCasa
+                    },
+                    "Pasatiempos": self.Pasatiempos,
+                    "Tesistas": {
+                        "nombre": {
+                            "pila": self.NombreCreador,
+                            "AP": self.TesisAM
+                        },
+                        "Tesis": self.TesisNombre
+                    }
+                }
+
+        
+        print(mydict)
+        # # sql = "INSERT INTO notas VALUES (null, %s, %s, %s, NOW())"
+        #note = (self.Nombre, self.AP, self.AM)
+
+        connect.insert_one(mydict)
+        # cursor.execute(sql, note)
+        # database.commit()
+        # return [cursor.rowcount,self]
 
     def show(self):
-        sql = f"SELECT * FROM notas WHERE usuario_id ={self.usuario_id}"
+        # print("hola")
+        result = connect.find()
+        # sql = f"SELECT * FROM notas WHERE usuario_id ={self.usuario_id}"
 
-        cursor.execute(sql)
-        database.commit()
+        # cursor.execute(sql)
+        # database.commit()
 
-        result = cursor.fetchall()
+        # result = cursor.fetchall()
         return result
 
     def delete(self):
-        sql=f"DELETE FROM notas WHERE usuario_id ={self.usuario_id} AND titulo LIKE '%{self.titulo}%'"
-        cursor.execute(sql)
-        database.commit()
-        return [cursor.rowcount,self]
+        sql = f"DELETE FROM notas WHERE usuario_id ={self.usuario_id} AND titulo LIKE '%{self.titulo}%'"
+        # cursor.execute(sql)
+        # database.commit()
+        # return [cursor.rowcount,self]
 
     def update(self):
-        sql=f"UPDATE notas SET descripcion = '{self.descripcion}' WHERE titulo = '{self.titulo}'"
-        cursor.execute(sql)
-        database.commit()
-        return [cursor.rowcount,self]
-
+        sql = f"UPDATE notas SET descripcion = '{self.descripcion}' WHERE titulo = '{self.titulo}'"
+        # cursor.execute(sql)
+        # database.commit()
+        # return [cursor.rowcount,self]

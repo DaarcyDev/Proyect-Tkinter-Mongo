@@ -1,5 +1,5 @@
-import User.actions as actions
+import Notes.actions as actions
 
-doit=actions.Actions()
+doit=actions.ActionsNotes()
 
-doit.home()
+doit.menu()

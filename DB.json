@@ -1,0 +1,876 @@
+[
+    {
+        "_id": "01",
+        "Nombre": {
+            "pila": "Matilde",
+            "AP": "Rodriguez",
+            "AM": "Beltrán"
+        },
+        "RFC": "MARO10293985",
+        "Sueldo":"15562",
+        "Sexo": "F",
+        "Materias": [
+            "POO",
+            "FIS",
+            "TBD",
+            "IA"
+        ],
+        "Telefonos": {
+            "celular": "9238475"
+        },
+        "Pasatiempos": [
+            "Escuchar musica",
+            "Bailar",
+            "Estudiar idiomas"
+        ],
+        "Tesistas": {
+            "nombre": {
+                "pila": "Juan",
+                "AP": "Hernandez"
+            },
+            "Tesis": "...porque el viento entra en todos lados."
+        }
+    },
+    {
+        "_id": "02",
+        "Nombre": {
+            "pila": "Martin",
+            "AP": "Almazan",
+            "AM": "Pérez"
+        },
+        "RFC": "APY900130HS",
+        "Sueldo":"26000",
+        "Sexo": "M",
+        "Materias": [
+            "FBD",
+            "BD",
+            "Big Data",
+            "TBD"
+        ],
+        "Telefonos": {
+            "casa": "77771258434",
+            "celular": "777715485234"
+        },
+        "Pasatiempos": [
+            "Tocar guitarra"
+        ],
+        "Tesistas": {
+            "nombre": {
+                "pila": "Evelyn",
+                "AP": "Reyes"
+            },
+            "Tesis": "Un análisis sobre el impacto de la agenda de Buena Gobernanza en el proyecto petrolero Chad Camerún Relaciones Internacionales."
+        }
+    },
+    {
+        "_id": "03",
+        "Nombre": {
+            "pila": "Carolina",
+            "AP": "Rodriguez",
+            "AM": "Martinez"
+        },
+        "RFC": "RRA851025HG",
+        "Sueldo":"15000",
+        "Sexo": "F",
+        "Materias": [
+            "POO",
+            "TSO",
+            "TAP",
+            "SO"
+        ],
+        "Telefonos": {
+            "casa": "7775485632",
+            "celular": "77766535124"
+        },
+        "Pasatiempos": [
+            "Tejer",
+            "Bordar",
+            "Reposteria"
+        ],
+        "Tesistas": {
+            "nombre": {
+                "pila": "Karla",
+                "AP": "Pérez"
+            },
+            "Tesis": "Alianzas estratégicas del Mercosur."
+        }
+    },
+    {
+        "_id": "04",
+        "Nombre": {
+            "pila": "Ricardo",
+            "AP": "Camargo",
+            "AM": "Hernández"
+        },
+        "RFC": "CHR941231HG",
+        "Sueldo":"27000",
+        "Sexo": "M",
+        "Materias": [
+            "Big Data",
+            "Q1",
+            "FDP"
+        ],
+        "Telefonos": {
+            "casa": "77772004329",
+            "celular": "7777475687"
+        },
+        "Pasatiempos": [
+            "Karate"
+        ],
+        "Tesistas": {
+            "nombre": {
+                "pila": "Jenifer",
+                "AP": "Camacho"
+            },
+            "Tesis": "Análisis etnográfico sobre los usos y preferencias televisivas de las amas de casa de San Pedro Cholula."
+        }
+    },
+    {
+        "_id": "05",
+        "Nombre": {
+            "pila": "Leonel",
+            "AP": "Cabrera",
+            "AM": "Martinez"
+        },
+        "RFC": "CML942809HG",
+        "Sueldo":"17000",
+        "Sexo": "M",
+        "Materias": [
+            "SIM",
+            "POO",
+            "IA"
+        ],
+        "Telefonos": {
+            "celular": "7776243548"
+        },
+        "Pasatiempos": [
+            "Tennis",
+            "Futboll",
+            "Bailar"
+        ],
+        "Tesistas": {
+            "nombre": {
+                "pila": "Luna",
+                "AP": "Cabrera"
+            },
+            "Tesis": "Análisis exergético de una central termoeléctrica de ciclo de vapor."
+        }
+    },
+    {
+        "_id": "06",
+        "Nombre": {
+            "pila": "Jesús",
+            "AP": "Pedroza",
+            "AM": "Montenegro"
+        },
+        "RFC": "PMD861903HG",
+        "Sueldo":"20000",
+        "Sexo": "M",
+        "Materias": [
+            "TAP",
+            "Q1",
+            "Q2",
+            "SIM"
+        ],
+        "Telefonos": {
+            "casa": "7772456325",
+            "celular": "7772142455"
+        },
+        "Pasatiempos": [
+            "Ciclismo",
+            "Leer"
+        ],
+        "Tesis": "Análisis Exegético de una planta de hidrodealquilación de tolueno y una planta simplificada de síntesis de amoniaco mediante el método de distribución de cargas energéticas."
+    },
+    {
+        "_id": "07",
+        "Nombre": {
+            "pila": "Linda",
+            "AP": "Carmona",
+            "AM": "Sanchez"
+        },
+        "RFC": "CSL990606JH",
+        "Sueldo":"40000",
+        "Sexo": "M",
+        "Materias": [
+            "IA",
+            "POO",
+            "TSO",
+            "IA",
+            "CV"
+        ],
+        "Telefonos": {
+            "casa": "7774545568",
+            "celular": "7772135095"
+        },
+        "Pasatiempos": [
+            "Violinista",
+            "Leer",
+            "Zumba"
+        ],
+        "Tesis": "Análisis y simulación de un convertidor eficiente con un sistema fotovoltaico para una carga no lineal."
+    },
+    {
+        "_id": "08",
+        "Nombre": {
+            "pila": "Angelica",
+            "AP": "Álvarez",
+            "AM": "Hierro"
+        },
+        "RFC": "AHAL950406JH",
+        "Sueldo":"30000",
+        "Sexo": "M",
+        "Materias": [
+            "PLF",
+            "SO",
+            "TAP",
+            "CI",
+            "SIM"
+        ],
+        "Telefonos": {
+            "casa": "7777893462",
+            "celular": "777257795"
+        },
+        "Pasatiempos": [
+            "Tennis",
+            "Nadar",
+            "Cocinar"
+        ],
+        "Tesis": "Análisis y simulación del impacto frontal y lateral del auto del Proyecto Mini baja."
+    },
+    {
+        "_id": "09",
+        "Nombre": {
+            "pila": "Lisbeth",
+            "AP": "Coronel",
+            "AM": "Flores"
+        },
+        "RFC": "CCL91406HJ",
+        "Sueldo":"25000",
+        "Sexo": "M",
+        "Materias": [
+            "FBD",
+            "BD",
+            "TBD",
+            "Big Data"
+        ],
+        "Telefonos": {
+            "celular": "7775957964"
+        },
+        "Pasatiempos": [
+            "Caminar",
+            "Ciclismo",
+            "Escribir poemas"
+        ],
+        "Tesis": "Simulación del impacto frontal."
+    },
+    {
+        "_id": "10",
+        "Nombre": {
+            "pila": "Nicolas",
+            "AP": "Porcayo",
+            "AM": "Ortiz"
+        },
+        "RFC": "PONN760505D50",
+        "Sueldo":"25300",
+        "Sexo": "H",
+        "Materias": [
+            "Big Data",
+            "CV",
+            "CI",
+            "ED"
+        ],
+        "Telefonos": {
+            "casa": "7345634217",
+            "celular": "7774535893"
+        },
+        "Pasatiempos": [
+            "Coleccionista"
+        ],
+        "Tesistas": {
+            "nombre": {
+                "pila": "Linsey",
+                "AP": "Stirling"
+            },
+            "Tesis": "Diagnóstico y diseño de estrategias de comunicación interna para la mejora de la cultura corporativa en Inverca Afore."
+        }
+    },
+    {
+        "_id": "11",
+        "Nombre": {
+            "pila": "Andrea",
+            "AP": "Carvajal",
+            "AM": "Abundez"
+        },
+        "RFC": "CAAM942608HF",
+        "Sueldo":"14500",
+        "Sexo": "M",
+        "Materias": [
+            "Q1",
+            "Q2",
+            "SIM",
+            "PW"
+        ],
+        "Telefonos": {
+            "casa": "77774512498",
+            "celular": "77754124596"
+        },
+        "Pasatiempos": [
+            "Zumba"
+        ],
+        "Tesistas": {
+            "nombre": {
+                "pila": "Pedro",
+                "AP": "Montes"
+            },
+            "Tesis": "Análisis y valoración de un sistema de operación de venta como parte del plan estratégico de mercado de la empresa comercializadora productos San Juan."
+        }
+    },
+    {
+        "_id": "12",
+        "Nombre": {
+            "pila": "Jonathan",
+            "AP": "Noriega",
+            "AM": "Leal"
+        },
+        "RFC": "DCMG921003JH",
+        "Sueldo":"10000",
+        "Sexo": "M",
+        "Materias": [
+            "CD",
+            "POO",
+            "BD"
+        ],
+        "Telefonos": {
+            "celular": "7775412090"
+        },
+        "Pasatiempos": [
+            "Correr"
+        ],
+        "Tesistas": {
+            "nombre": {
+                "pila": "Juan",
+                "AP": "Diaz"
+            },
+            "Tesis": "Desarrollo del proyecto Expedition Earth."
+        }
+    },
+    {
+        "_id": "13",
+        "Nombre": {
+            "pila": "Rodrigo",
+            "AP": "Rosas",
+            "AM": "Coronel"
+        },
+        "RFC": "RCRA150530",
+        "Sueldo":"10000",
+        "Sexo": "H",
+        "Materias": [
+            "IA",
+            "BD"
+        ],
+        "Telefonos": {
+            "casa": "77746631234",
+            "celular": "7774631304"
+        },
+        "Pasatiempos": [
+            "Boxeador"
+        ],
+        "Tesistas": {
+            "nombre": {
+                "pila": "Manuel",
+                "AP": "Osorio"
+            },
+            "Tesis": "Desarrollo e Instrumentación de Paquete."
+        }
+    },
+    {
+        "_id": "14",
+        "Nombre": {
+            "pila": "Cassandra",
+            "AP": "Madrigal",
+            "AM": "Salgado"
+        },
+        "RFC": "MSC901010",
+        "Sueldo":"10000",
+        "Sexo": "M",
+        "Materias": [
+            "POO"
+        ],
+        "Telefonos": {
+            "casa": "7774631864",
+            "celular": "7345621239"
+        },
+        "Pasatiempos": [
+            "Fotógrafa"
+        ],
+        "Tesistas": {
+            "nombre": {
+                "pila": "Yenifer",
+                "AP": "Ayala"
+            },
+            "Tesis": "Disminución del número de botellas defectuosas en una fábrica de envases de plástico."
+        }
+    },
+    {
+        "_id": "15",
+        "Nombre": {
+            "pila": "Alan",
+            "AP": "Mendez",
+            "AM": "Mendez"
+        },
+        "RFC": "QUMA470929F37",
+        "Sueldo":"20400",
+        "Sexo": "M",
+        "Materias": [
+            "CED",
+            "AC",
+            "IA",
+            "Big Data"
+        ],
+        "Telefonos": {
+            "celular": "8127115"
+        },
+        "Pasatiempos": [
+            "Estirar"
+        ],
+        "Tesistas": {
+            "nombre": {
+                "pila": "Emilia",
+                "AP": "Carrera"
+            },
+            "Tesis": "Obesidad en los niños"
+        }
+    },
+    {
+        "_id": "16",
+        "Nombre": {
+            "pila": "Jacinto",
+            "AP": "Carrera",
+            "AM": "García"
+        },
+        "RFC": "CAPV841211G54",
+        "Sueldo":"15500",
+        "Sexo": "M",
+        "Materias": [
+            "RC",
+            "TI1",
+            "TI2",
+            "Arte"
+        ],
+        "Telefonos": {
+            "casa": "5047547",
+            "celular": "3891047"
+        },
+        "Pasatiempos": [
+            "Caminar"
+        ],
+        "Tesis": "Inteligencia Artificial y los impactos en la sociedad actual."
+    },
+    {
+        "_id": "17",
+        "Nombre": {
+            "pila": "Mónica",
+            "AP": "López",
+            "AM": "Ruiz"
+        },
+        "RFC": "MOM9810155622F8",
+        "Sueldo":"34000",
+        "Sexo": "F",
+        "Materias": [
+            "FIS",
+            "Big Data",
+            "CD",
+            "CV"
+        ],
+        "Telefonos": {
+            "casa": "9905829",
+            "celular": "4422047"
+        },
+        "Pasatiempos": [
+            "Hacer ejercicio físico",
+            "Meditar",
+            "Leer"
+        ],
+        "Tesistas": {
+            "nombre": {
+                "pila": "Suárez",
+                "AP": "Ruiz"
+            },
+            "Tesis": "Calentamiento Global"
+        }
+    },
+    {
+        "_id": "18",
+        "Nombre": {
+            "pila": "Josefina",
+            "AP": "Cetino",
+            "AM": "Ruiz"
+        },
+        "RFC": "VATL900113MW8",
+        "Sueldo":"13800",
+        "Sexo": "F",
+        "Materias": [
+            "ED",
+            "CE",
+            "ABD",
+            "PLF"
+        ],
+        "Telefonos": {
+            "casa": "3167171",
+            "celular": "4909055"
+        },
+        "Pasatiempos": [
+            "Practicar deportes"
+        ],
+        "Tesis": "¿Cómo aumentar el comercio exterior de México?"
+    },
+    {
+        "_id": "19",
+        "Nombre": {
+            "pila": "Antonia",
+            "AP": "Aliñado",
+            "AM": "Asturias"
+        },
+        "RFC": "CEL880421GG0",
+        "Sueldo":"29000",
+        "Sexo": "F",
+        "Materias": [
+            "TAP",
+            "CI",
+            "IS",
+            "TI1"
+        ],
+        "Telefonos": {
+            "casa": "9922895",
+            "celular": "4955562"
+        },
+        "Pasatiempos": [
+            "Yoga",
+            "Esgrima",
+            "Escuchar música"
+        ],
+        "Tesistas": {
+            "nombre": {
+                "pila": "Sabrina",
+                "AP": "Asturias"
+            },
+            "Tesis": "¿Qué tan comprometidos están los bancos centrales de América Latina con sus objetivos de inflación? Evidencia de un modelo con preferencias asimétricas"
+        }
+    },
+    {
+        "_id": "20",
+        "Nombre": {
+            "pila": "Andrés",
+            "AP": "Noriega",
+            "AM": "Morales"
+        },
+        "RFC": "GRA011009MW1",
+        "Sueldo":"10000",
+        "Sexo": "M",
+        "Materias": [
+            "TSO",
+            "FT",
+            "DS",
+            "PW"
+        ],
+        "Telefonos": {
+            "casa": "9178639",
+            "celular": "6018757"
+        },
+        "Pasatiempos": [
+            "Escuchar musica",
+            "Correr",
+            "Ciclismo"
+        ],
+        "Tesis": "¿Qué pasa en Facebook? Redes sociales y desarrollo de valores como la tolerancia"
+    },
+    {
+        "_id": "21",
+        "Nombre": {
+            "pila": "Marcelo",
+            "AP": "Pirír",
+            "AM": "Sabán"
+        },
+        "RFC": "HDA100714HW5",
+        "Sueldo":"20800",
+        "Sexo": "M",
+        "Materias": [
+            "LI",
+            "GPS",
+            "MCD",
+            "Big Data"
+        ],
+        "Telefonos": {
+            "casa": "1078643",
+            "celular": "2075934"
+        },
+        "Pasatiempos": [
+            "Leer"
+        ],
+        "Tesistas": {
+            "nombre": {
+                "pila": "Carlos",
+                "AP": "Chajón"
+            },
+            "Tesis": "¿Son los medios postmodernos o la Postmodernidad es mediática?"
+        }
+    },
+    {
+        "_id": "22",
+        "Nombre": {
+            "pila": "Luis",
+            "AP": "Soto",
+            "AM": "Chajón"
+        },
+        "RFC": "ILA020311473",
+        "Sueldo":"31500",
+        "Sexo": "M",
+        "Materias": [
+            "LA1",
+            "LA2",
+            "AID",
+            "AL"
+        ],
+        "Telefonos": {
+            "casa": "9190737",
+            "celular": "2546452"
+        },
+        "Pasatiempos": [
+            "Escribir",
+            "Leer",
+            "Tejer"
+        ],
+        "Tesis": "Soy artesano hasta la fecha: Organización y Estrategias para la Producción de Artesanías en el municipio de Tecali de Herrera, Puebla"
+    },
+    {
+        "_id": "23",
+        "Nombre": {
+            "pila": "Bolivia",
+            "AP": "Revolorio",
+            "AM": "Quevedo"
+        },
+        "RFC": "RIPF800312AZ0",
+        "Sueldo":"39400",
+        "Sexo": "F",
+        "Materias": [
+            "TA",
+            "TE",
+            "ED",
+            "MN"
+        ],
+        "Telefonos": {
+            "casa": "8533181",
+            "celular": "9103511"
+        },
+        "Pasatiempos": [
+            "Bailar"
+        ],
+        "Tesis": "3er Pizzo Aplicación de la metodología DobleA para el desarrollo del Brandscaping : identidad corporativa y proyecto arquitectónico para una pizzería en la ciudad de San Andrés Cholula Puebla"
+    },
+    {
+        "_id": "24",
+        "Nombre": {
+            "pila": "América",
+            "AP": "López",
+            "AM": "Villacorta"
+        },
+        "RFC": "POFC900823CXA",
+        "Sueldo":"40500",
+        "Sexo": "F",
+        "Materias": [
+            "SIM",
+            "GRAF",
+            "SP",
+            "AR"
+        ],
+        "Telefonos": {
+            "casa": "9564823",
+            "celular": "4456850"
+        },
+        "Pasatiempos": [
+            "Coleccionar"
+        ],
+        "Tesistas": {
+            "nombre": {
+                "pila": "Amalia",
+                "AP": "Muchuch"
+            },
+            "Tesis": "4D Orthogonal Polytopes"
+        }
+    },
+    {
+        "_id": "25",
+        "Nombre": {
+            "pila": "Julio",
+            "AP": "Muchuch",
+            "AM": "Chutá"
+        },
+        "RFC": "ROCG910518UN3",
+        "Sueldo":"22000",
+        "Sexo": "M",
+        "Materias": [
+            "TSO",
+            "SO",
+            "PW",
+            "AC"
+        ],
+        "Telefonos": {
+            "casa": "6744669",
+            "celular": "1233286"
+        },
+        "Pasatiempos": [
+            "Escuchar música"
+        ],
+        "Tesistas": {
+            "nombre": {
+                "pila": "Juana",
+                "AP": "Alarcón"
+            },
+            "Tesis": "A critical analysis of discourse found in a cartoon for children in Mexico"
+        }
+    },
+    {
+        "_id": "26",
+        "Nombre": {
+            "pila": "Rodrigo",
+            "AP": "Soto",
+            "AM": "Juárez"
+        },
+        "RFC": "AEEV790125SH3",
+        "Sueldo":"28000",
+        "Sexo": "M",
+        "Materias": [
+            "RC",
+            "CED",
+            "AR",
+            "LA1"
+        ],
+        "Telefonos": {
+            "casa": "1307253",
+            "celular": "4884357"
+        },
+        "Pasatiempos": [
+            "Tejer"
+        ],
+        "Tesistas": {
+            "nombre": {
+                "pila": "Antonio",
+                "AP": "Vásquez"
+            },
+            "Tesis": "Abstencionismo y legitimidad en Europa: El caso del Tratado Constitucional"
+        }
+    },
+    {
+        "_id": "27",
+        "Nombre": {
+            "pila": "Nicolás",
+            "AP": "Alemán",
+            "AM": "Galindo"
+        },
+        "RFC": "SAGA570124V50",
+        "Sueldo":"13500",
+        "Sexo": "M",
+        "Materias": [
+            "FBD",
+            "Big Data",
+            "ABD",
+            "BD"
+        ],
+        "Telefonos": {
+            "celular": "4532427"
+        },
+        "Pasatiempos": [
+            "Yoga"
+        ],
+        "Tesistas": {
+            "nombre": {
+                "pila": "Andrea",
+                "AP": "Villatoro"
+            },
+            "Tesis": "Abstracción coreográfica sobre el rol femenino dentro del folklor mexicano"
+        }
+    },
+    {
+        "_id": "28",
+        "Nombre": {
+            "pila": "Leandro",
+            "AP": "Calderón",
+            "AM": "Muller"
+        },
+        "RFC": "DERG700717UP1",
+        "Sueldo":"33490",
+        "Sexo": "M",
+        "Materias": [
+            "FIS",
+            "IS",
+            "GPS",
+            "LA2"
+        ],
+        "Telefonos": {
+            "casa": "2968265",
+            "celular": "8679323"
+        },
+        "Pasatiempos": [
+            "Pintar",
+            "Dibujar",
+            "Reposteria"
+        ],
+        "Tesistas": {
+            "nombre": {
+                "pila": "Victor",
+                "AP": "Camey"
+            },
+            "Tesis": "Acceso fonológico a la lengua de señas mexicana (LSM)"
+        }
+    },
+    {
+        "_id": "29",
+        "Nombre": {
+            "pila": "Renault",
+            "AP": "Camey",
+            "AM": "Ramírez"
+        },
+        "RFC": "SCV041116QJ0",
+        "Sueldo":"23289",
+        "Sexo": "M",
+        "Materias": [
+            "FIS",
+            "MD",
+            "Q1",
+            "Q2"
+        ],
+        "Telefonos": {
+            "casa": "3014511",
+            "celular": "3808892"
+        },
+        "Pasatiempos": [
+            "Aprender un nuevo idioma"
+        ],
+        "Tesis": "Búsqueda..."
+    },
+    {
+        "_id": "30",
+        "Nombre": {
+            "pila": "Gaspar",
+            "AP": "Rosales",
+            "AM": "Aias"
+        },
+        "RFC": "ROHM8208017P3",
+        "Sueldo":"20680",
+        "Sexo": "M",
+        "Materias": [
+            "AR",
+            "LA1",
+            "LA2",
+            "TI1"
+        ],
+        "Telefonos": {
+            "celular": "9328003"
+        },
+        "Pasatiempos": [
+            "Leer"
+        ],
+        "Tesis": "Análisis de discurso denotativo y connotativo de producciones de video indígena de Ojo de Agua Comunicación"
+    }
+]
