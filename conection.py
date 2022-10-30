@@ -2,7 +2,7 @@ from tkinter import PROJECTING
 from pymongo import MongoClient
 
 
-def conect():
+def connect():
 
     client = MongoClient("localhost")
     db = client["Escolar"]

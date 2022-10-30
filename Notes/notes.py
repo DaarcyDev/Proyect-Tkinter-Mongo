@@ -1,13 +1,18 @@
+from tkinter import StringVar
+from traceback import print_tb
 import conection as conection
 
 # creamos las conexiones
-connect = conection.conect()
+connect = conection.connect()
 # database = connect[0]
 # cursor = connect[1]
 
 
 class Note:
-    def __init__(self, Nombre="", AM="", AP="", RFC="", Sueldo="",Sexo="", Materias="", TelC="", TelCasa="", Pasatiempos="", NombreCreador="", TesisAM="", TesisNombre=""):
+    def __init__(self, Nombre="", AM="", AP="", RFC="", Sueldo="",Sexo="", Materias="", TelC="", 
+                    TelCasa="", Pasatiempos="", NombreCreador="", TesisAM="", TesisNombre=""):
+        # self.idGet=idGet
+        # self.NombreGet=NombreGet
         self.Nombre = Nombre
         self.AP = AP
         self.AM = AM
@@ -22,6 +27,7 @@ class Note:
         self.NombreCreador = NombreCreador
         self.TesisAM = TesisAM
         self.TesisNombre = TesisNombre
+        
 
     def save(self):
 
@@ -77,6 +83,41 @@ class Note:
 
         # result = cursor.fetchall()
         return result
+    def showNameSelector(self,NombreGet):
+        result = connect.find_one({"Nombre.pila":f"{NombreGet}"})
+        # print(f"Nombre.pila:{NombreGet}")
+        return result
+
+    def showMatterSelector(self,MateriaGet):
+        
+        result = connect.find({"Materias":f"{MateriaGet}"})
+        # print(f"Nombre.pila:{NombreGet}")
+        return result
+
+    def showSalarySelector(self):
+        sueldoM=0
+        sueldoF=0
+        for x in connect.find({"Sexo":"M"}):
+            
+            sueldoM = int(x["Sueldo"])+sueldoM
+        # print(sueldoM)
+        vM=sueldoM
+        for x in connect.find({"Sexo":"F"}):
+            
+            sueldoF = int(x["Sueldo"])+sueldoF
+        # print(sueldoF)
+        vF = sueldoF
+        result = connect.find()
+        # print(result)
+        return result, vF, vM
+
+
+    def showIdSelector(self,idGet):
+        result = connect.find_one({"_id":f"{idGet}"})
+        return result
+
+    
+    
 
     def delete(self):
         sql = f"DELETE FROM notas WHERE usuario_id ={self.usuario_id} AND titulo LIKE '%{self.titulo}%'"
@@ -85,7 +126,8 @@ class Note:
         # return [cursor.rowcount,self]
 
     def update(self):
-        sql = f"UPDATE notas SET descripcion = '{self.descripcion}' WHERE titulo = '{self.titulo}'"
+        print("hola")
+        # sql = f"UPDATE notas SET descripcion = '{self.descripcion}' WHERE titulo = '{self.titulo}'"
         # cursor.execute(sql)
         # database.commit()
         # return [cursor.rowcount,self]
