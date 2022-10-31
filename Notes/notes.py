@@ -9,10 +9,11 @@ connect = conection.connect()
 
 
 class Note:
-    def __init__(self, Nombre="", AM="", AP="", RFC="", Sueldo="",Sexo="", Materias="", TelC="", 
+    def __init__(self,Id="", Nombre="", AM="", AP="", RFC="", Sueldo="",Sexo="", Materias="", TelC="", 
                     TelCasa="", Pasatiempos="", NombreCreador="", TesisAM="", TesisNombre=""):
         # self.idGet=idGet
         # self.NombreGet=NombreGet
+        self.Id = Id
         self.Nombre = Nombre
         self.AP = AP
         self.AM = AM
@@ -111,13 +112,9 @@ class Note:
         # print(result)
         return result, vF, vM
 
-
     def showIdSelector(self,idGet):
         result = connect.find_one({"_id":f"{idGet}"})
         return result
-
-    
-    
 
     def delete(self):
         sql = f"DELETE FROM notas WHERE usuario_id ={self.usuario_id} AND titulo LIKE '%{self.titulo}%'"
@@ -126,8 +123,35 @@ class Note:
         # return [cursor.rowcount,self]
 
     def update(self):
-        print("hola")
+        #!update({"_id":"33"},{$set:{"RFC":"asd","Sueldo":"3000"}})
+        #!> e.update({"_id":"33"},{$set:{"Nombre":{"pila":"qwe"}}})
+
+        # print(self.Id,self.Nombre,self.RFC)
+        myquery = {"_id":self.Id}
+        newvalues = {"$set":{"Nombre": {
+                                "pila": self.Nombre,
+                                "AP": self.AP,
+                                "AM": self.AM
+                            },
+                            "RFC": self.RFC,
+                            "Sueldo": self.Sueldo,
+                            "Sexo": self.Sexo,
+                            "Materias": self.Materias,
+                            "Telefonos": {
+                                "celular": self.TelC,
+                                "casa": self.TelCasa
+                            },
+                            "Pasatiempos": self.Pasatiempos,
+                            "Tesistas": {
+                                "nombre": {
+                                    "pila": self.NombreCreador,
+                                    "AP": self.TesisAM
+                                },
+                                "Tesis": self.TesisNombre
+                            }}}
+        result = connect.update_one(myquery,newvalues)
         # sql = f"UPDATE notas SET descripcion = '{self.descripcion}' WHERE titulo = '{self.titulo}'"
         # cursor.execute(sql)
         # database.commit()
         # return [cursor.rowcount,self]
+        return result

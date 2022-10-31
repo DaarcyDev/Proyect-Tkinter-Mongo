@@ -1,6 +1,8 @@
+from pyexpat import model
 from tkinter import *
 from tkinter import messagebox as MessageBox
 from tkinter import ttk
+from tokenize import String
 from unittest import result
 import Notes.notes as modelNotes
 import root as root
@@ -16,6 +18,7 @@ class ActionsNotes:
     root.root.grid_rowconfigure(0, weight=0)
     root.root.config(bg="#2F83BA")
 
+    Id = StringVar()
     Profesor = StringVar()
     AM = StringVar()
     AP = StringVar()
@@ -33,6 +36,7 @@ class ActionsNotes:
     idGet = StringVar()
     NombreGet = StringVar()
     MateriaGet = StringVar()
+    idUpdate = StringVar()
     products = []
 
     #!definir campos de pantallas add
@@ -235,18 +239,24 @@ class ActionsNotes:
         root.root.mainloop()
 
     def updateNote(self):
+        
         # * Create Note
-        updateNoteName = Label(root.updateNoteFrame, text="Name")
+        updateNoteName = Label(root.updateNoteFrame, text="Id")
         updateNoteName.grid(row=1, column=0, sticky=W)
         updateNoteNameEntry = Entry(
-            root.updateNoteFrame, textvariable=ActionsNotes())
+            root.updateNoteFrame, textvariable=ActionsNotes.idGet)
         updateNoteNameEntry.grid(row=1, column=1, sticky=W)
 
         botonEnterNotes = Button(root.updateNoteFrame, text="Next",
-                                 relief="groove", command=lambda: ActionsNotes().updateNoteStep2())
+                                 relief="groove", command=lambda: ActionsNotes().updateNoteMethodShow())
         botonEnterNotesBack = Button(
             root.updateNoteFrame, text="Back", relief="groove", command=lambda: ActionsNotes().menu())
 
+        if (updateNoteNameEntry):
+            ActionsNotes.idGet.set(""),
+            # ActionsNotes().showNoteId()
+        else:
+            MessageBox.showwarning("Alerta", "ERROR")
         # *
         updateLabel = Label(root.root, text="update Notes")
         updateLabel.config(fg="#fff", bg="#2F83BA",
@@ -270,44 +280,218 @@ class ActionsNotes:
             width=10, bg="#2F83BA", fg="#fff", font=("arial", 10), pady=3, padx=7)
 
         root.menuFrame.grid_remove()
+        root.updateNoteFrame2.grid_remove()
 
         root.root.mainloop()
 
-    def updateNoteStep2(self):
+    def updateNoteStep2(self, info):
+        
+        # print(modelNotes.Note().showIdSelector())
+        # print(info)
+        if (not str(info['Telefonos']).find("casa") == -1):
+            notas = info['Telefonos'].pop('casa')
+        else:
+            notas = ""
+        if ('Tesis' in info):
+            tesis = info['Tesis']
+        else:
+            tesis = info['Tesistas']['Tesis']
+            tesista = info['Tesistas']['nombre']['pila']
+            tesistaAP = info['Tesistas']['nombre']['AP']
+        # print("el id es: ", info["_id"])
+        ActionsNotes.Id.set(info["_id"])
+        ActionsNotes.Profesor.set(info["Nombre"]["pila"]),
+        ActionsNotes.AM.set(info["Nombre"]["AM"]),
+        ActionsNotes.AP.set(info["Nombre"]["AP"]),
+        ActionsNotes.RFC.set(info["RFC"]),
+        ActionsNotes.Sueldo.set(info["Sueldo"]),
+        ActionsNotes.Sexo.set(info["Sexo"]),
+        ActionsNotes.Materias.set(info["Materias"]),
+        ActionsNotes.TelC.set(info["Telefonos"]["celular"]),
+        ActionsNotes.TelCasa.set(notas),
+        ActionsNotes.Pasatiempos.set(info["Pasatiempos"]),
+        ActionsNotes.NombreCreador.set(tesista),
+        ActionsNotes.TesisAM.set(tesistaAP),
+        ActionsNotes.TesisNombre.set(tesis)
 
-        updateNoteDesc = Label(root.updateNoteFrame2, text="New Description")
-        updateNoteDesc.grid(row=2, column=0, sticky=NW)
+        UpdateProfesorName = Label(root.updateNoteFrame2, text="Nombre")
+        UpdateProfesorName.grid(row=1, column=0, sticky=W)
+        UpdateProfesorNameEntry = Entry(
+            root.updateNoteFrame2, textvariable=ActionsNotes.Profesor)
+        UpdateProfesorNameEntry.grid(row=1, column=1, sticky=W)
 
-        ActionsNotes.updateNoteDescEntry.grid(row=2, column=1)
+        UpdateAM = Label(root.updateNoteFrame2, text="Apellido Materno")
+        UpdateAM.grid(row=2, column=0, sticky=W)
+        UpdateAMEntry = Entry(root.updateNoteFrame2,
+                              textvariable=ActionsNotes.AM)
+        UpdateAMEntry.grid(row=2, column=1, sticky=W)
+
+        UpdateAP = Label(root.updateNoteFrame2, text="Apellido Paterno")
+        UpdateAP.grid(row=3, column=0, sticky=W)
+        UpdateAPEntry = Entry(root.updateNoteFrame2,
+                              textvariable=ActionsNotes.AP)
+        UpdateAPEntry.grid(row=3, column=1, sticky=W)
+
+        UpdateRFC = Label(root.updateNoteFrame2, text="RFC")
+        UpdateRFC.grid(row=4, column=0, sticky=W)
+        UpdateRFCEntry = Entry(root.updateNoteFrame2,
+                               textvariable=ActionsNotes.RFC)
+        UpdateRFCEntry.grid(row=4, column=1, sticky=W)
+
+        UpdateSueldo = Label(root.updateNoteFrame2, text="Sueldo")
+        UpdateSueldo.grid(row=5, column=0, sticky=W)
+        UpdateSueldoEntry = Entry(
+            root.updateNoteFrame2, textvariable=ActionsNotes.Sueldo)
+        UpdateSueldoEntry.grid(row=5, column=1, sticky=W)
+
+        UpdateSexo = Label(root.updateNoteFrame2, text="Sexo")
+        UpdateSexo.grid(row=6, column=0, sticky=W)
+        UpdateSexoEntry = Entry(
+            root.updateNoteFrame2, textvariable=ActionsNotes.Sexo)
+        UpdateSexoEntry.grid(row=6, column=1, sticky=W)
+
+        UpdateMaterias = Label(root.updateNoteFrame2, text="Materias")
+        UpdateMaterias.grid(row=7, column=0, sticky=W)
+        UpdateMateriasEntry = Entry(
+            root.updateNoteFrame2, textvariable=ActionsNotes.Materias)
+        UpdateMateriasEntry.grid(row=7, column=1, sticky=W)
+
+        UpdateTelC = Label(root.updateNoteFrame2, text="Telefono Celular")
+        UpdateTelC.grid(row=8, column=0, sticky=W)
+        UpdateTelCEntry = Entry(root.updateNoteFrame2,
+                                textvariable=ActionsNotes.TelC)
+        UpdateTelCEntry.grid(row=8, column=1, sticky=W)
+
+        UpdateTelCasa = Label(root.updateNoteFrame2, text="Telefono Casa")
+        UpdateTelCasa.grid(row=9, column=0, sticky=W)
+        UpdateTelCasaEntry = Entry(
+            root.updateNoteFrame2, textvariable=ActionsNotes.TelCasa)
+        UpdateTelCasaEntry.grid(row=9, column=1, sticky=W)
+
+        UpdatePasatiempo = Label(root.updateNoteFrame2, text="Pasatiempos")
+        UpdatePasatiempo.grid(row=10, column=0, sticky=W)
+        UpdatePasatiempoEntry = Entry(
+            root.updateNoteFrame2, textvariable=ActionsNotes.Pasatiempos)
+        UpdatePasatiempoEntry.grid(row=10, column=1, sticky=W)
+
+        UpdateTesistas = Label(root.updateNoteFrame2, text="Tesistas")
+        UpdateTesistas.grid(row=11, column=1, sticky=W)
+
+        UpdateTesisNombreCreador = Label(root.updateNoteFrame2, text="Nombre")
+        UpdateTesisNombreCreador.grid(row=12, column=0, sticky=W)
+        UpdateTesisNombreCreadorEntry = Entry(
+            root.updateNoteFrame2, textvariable=ActionsNotes.NombreCreador)
+        UpdateTesisNombreCreadorEntry.grid(row=12, column=1, sticky=W)
+
+        UpdateTesisAM = Label(root.updateNoteFrame2, text="Apellido Materno")
+        UpdateTesisAM.grid(row=13, column=0, sticky=W)
+        UpdateTesisAMEntry = Entry(
+            root.updateNoteFrame2, textvariable=ActionsNotes.TesisAM)
+        UpdateTesisAMEntry.grid(row=13, column=1, sticky=W)
+
+        UpdateTesisName = Label(root.updateNoteFrame2,
+                                text="Nombre de la tesis")
+        UpdateTesisName.grid(row=14, column=0, sticky=W)
+        UpdateTesisNameEntry = Entry(
+            root.updateNoteFrame2, textvariable=ActionsNotes.TesisNombre)
+        UpdateTesisNameEntry.grid(row=14, column=1, sticky=W)
+
+        # UpdateNoteDesc = Label(root.updateNoteFrame2,text="Description")
+        # UpdateNoteDesc.grid(row=2, column=0, sticky=NW)
+
+        # ActionsNotes.UpdateNoteDescEntry.grid(row=2, column=1)
 
         botonEnterNotes = Button(root.updateNoteFrame2, text="Enter",
                                  relief="groove", command=lambda: ActionsNotes().updateNoteMethod())
         botonEnterNotesBack = Button(
             root.updateNoteFrame2, text="Back", relief="groove", command=lambda: ActionsNotes().menu())
 
-        updateLabel = Label(root.root, text="update Notes")
-        updateLabel.config(fg="#fff", bg="#2F83BA",
+        # *Estilos
+        UpdateLabel = Label(root.root, text="Update Notes")
+        UpdateLabel.config(fg="#fff", bg="#2F83BA",
                            font=("arial", 30), padx=20, pady=50)
 
-        updateLabel.grid(row=0, column=0, columnspan=3, sticky=NSEW)
+        UpdateLabel.grid(row=0, column=0, columnspan=3, sticky=NSEW)
         root.updateNoteFrame2.grid(row=1, column=0, columnspan=2, sticky=N)
         root.updateNoteFrame2.config(bg="#2F83BA")
 
-        updateNoteDesc.config(bg="#2F83BA", fg="#fff",
-                              height=2, font=("arial", 15), padx=10)
-        ActionsNotes.updateNoteDescEntry.config(
-            width=25, height=5, padx=5, font=("arial", 15), bg="#FFF", fg="#000")
+        UpdateProfesorName.config(
+            bg="#2F83BA", fg="#fff", height=1, font=("arial", 15), padx=7)
+        UpdateProfesorNameEntry.config(
+            width=32, font=("arial", 13), bg="#fff", fg="#000")
 
-        botonEnterNotes.grid(row=5, column=1, sticky=E, padx=5, pady=10)
+        UpdateAM.config(bg="#2F83BA", fg="#fff", height=1,
+                        font=("arial", 15), padx=7)
+        UpdateAMEntry.config(width=32, font=(
+            "arial", 13), bg="#fff", fg="#000")
+
+        UpdateAP.config(bg="#2F83BA", fg="#fff", height=1,
+                        font=("arial", 15), padx=7)
+        UpdateAPEntry.config(width=32, font=(
+            "arial", 13), bg="#fff", fg="#000")
+
+        UpdateRFC.config(bg="#2F83BA", fg="#fff", height=1,
+                         font=("arial", 15), padx=7)
+        UpdateRFCEntry.config(width=32, font=(
+            "arial", 13), bg="#fff", fg="#000")
+
+        UpdateSueldo.config(bg="#2F83BA", fg="#fff",
+                            height=1, font=("arial", 15), padx=7)
+        UpdateSueldoEntry.config(width=32, font=(
+            "arial", 13), bg="#fff", fg="#000")
+
+        UpdateSexo.config(bg="#2F83BA", fg="#fff",
+                            height=1, font=("arial", 15), padx=7)
+        UpdateSexoEntry.config(width=32, font=(
+            "arial", 13), bg="#fff", fg="#000")
+
+        UpdateMaterias.config(bg="#2F83BA", fg="#fff",
+                              height=1, font=("arial", 15), padx=7)
+        UpdateMateriasEntry.config(width=32, font=(
+            "arial", 13), bg="#fff", fg="#000")
+
+        UpdateTelC.config(bg="#2F83BA", fg="#fff", height=1,
+                          font=("arial", 15), padx=7)
+        UpdateTelCEntry.config(width=32, font=(
+            "arial", 13), bg="#fff", fg="#000")
+
+        UpdateTelCasa.config(bg="#2F83BA", fg="#fff",
+                             height=1, font=("arial", 15), padx=7)
+        UpdateTelCasaEntry.config(width=32, font=(
+            "arial", 13), bg="#fff", fg="#000")
+
+        UpdatePasatiempo.config(bg="#2F83BA", fg="#fff",
+                                height=1, font=("arial", 15), padx=7)
+        UpdatePasatiempoEntry.config(
+            width=32, font=("arial", 13), bg="#fff", fg="#000")
+
+        UpdateTesistas.config(bg="#2F83BA", fg="#fff",
+                              height=1, font=("arial", 15), padx=7)
+
+        UpdateTesisNombreCreador.config(
+            bg="#2F83BA", fg="#fff", height=1, font=("arial", 15), padx=7)
+        UpdateTesisNombreCreadorEntry.config(
+            width=32, font=("arial", 13), bg="#fff", fg="#000")
+
+        UpdateTesisAM.config(bg="#2F83BA", fg="#fff",
+                             height=1, font=("arial", 15), padx=7)
+        UpdateTesisAMEntry.config(width=32, font=(
+            "arial", 13), bg="#fff", fg="#000")
+
+        UpdateTesisName.config(bg="#2F83BA", fg="#fff",
+                               height=1, font=("arial", 15), padx=7)
+        UpdateTesisNameEntry.config(width=32, font=(
+            "arial", 13), bg="#fff", fg="#000")
+
+        botonEnterNotes.grid(row=16, column=1, sticky=E, padx=5, pady=10)
         botonEnterNotes.config(width=10, bg="#BEE2FA",
                                fg="#000", font=("arial", 15), pady=3, padx=7)
 
-        botonEnterNotesBack.grid(row=5, column=0, sticky=SW, padx=5, pady=10)
+        botonEnterNotesBack.grid(row=16, column=0, sticky=SW, padx=5, pady=10)
         botonEnterNotesBack.config(
             width=10, bg="#2F83BA", fg="#fff", font=("arial", 10), pady=3, padx=7)
 
         root.menuFrame.grid_remove()
-        root.updateNoteFrame.grid_remove()
 
         root.root.mainloop()
 
@@ -1000,14 +1184,45 @@ class ActionsNotes:
         else:
             MessageBox.showwarning("Alerta", "ERROR")
 
-    def updateNoteMethod(self):
-        note = modelNotes.Note([0], ActionsNotes.title.get(
-        ), ActionsNotes.updateNoteDescEntry.get("1.0", "end-1c"))
-        update = note.update()
+    def updateNoteMethodShow(self):
+        info = modelNotes.Note().showIdSelector(ActionsNotes.idGet.get())
+        # print(info)
+        # print(ActionsNotes.idGet.get())
+        ActionsNotes().updateNoteStep2(info)
 
-        if (update[0] >= 1):
-            ActionsNotes.title.set("")
-            ActionsNotes.updateNoteDescEntry.delete("1.0", END)
+    def updateNoteMethod(self):
+        
+        note = modelNotes.Note(ActionsNotes.Id.get(),
+                                ActionsNotes.Profesor.get(),
+                                ActionsNotes.AM.get(),
+                                ActionsNotes.AP.get(),
+                                ActionsNotes.RFC.get(),
+                                ActionsNotes.Sueldo.get(),
+                                ActionsNotes.Sexo.get(),
+                                ActionsNotes.Materias.get(),
+                                ActionsNotes.TelC.get(),
+                                ActionsNotes.TelCasa.get(),
+                                ActionsNotes.Pasatiempos.get(),
+                                ActionsNotes.NombreCreador.get(),
+                                ActionsNotes.TesisAM.get(),
+                                ActionsNotes.TesisNombre.get())
+        save = note.update()
+        # print(save[0])
+
+        if (save):
+            ActionsNotes.Profesor.set(""),
+            ActionsNotes.AM.set(""),
+            ActionsNotes.AP.set(""),
+            ActionsNotes.RFC.set(""),
+            ActionsNotes.Sueldo.set(""),
+            ActionsNotes.Sexo.set(""),
+            ActionsNotes.Materias.set(""),
+            ActionsNotes.TelC.set(""),
+            ActionsNotes.TelCasa.set(""),
+            ActionsNotes.Pasatiempos.set(""),
+            ActionsNotes.NombreCreador.set(""),
+            ActionsNotes.TesisAM.set(""),
+            ActionsNotes.TesisNombre.set("")
             ActionsNotes().menu()
         else:
             MessageBox.showwarning("Alerta", "ERROR")
