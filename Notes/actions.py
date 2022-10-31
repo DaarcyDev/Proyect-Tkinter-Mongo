@@ -1,9 +1,6 @@
-from pyexpat import model
 from tkinter import *
 from tkinter import messagebox as MessageBox
 from tkinter import ttk
-from tokenize import String
-from unittest import result
 import Notes.notes as modelNotes
 import root as root
 
@@ -37,6 +34,7 @@ class ActionsNotes:
     NombreGet = StringVar()
     MateriaGet = StringVar()
     idUpdate = StringVar()
+    idDelete = StringVar()
     products = []
 
     #!definir campos de pantallas add
@@ -603,6 +601,8 @@ class ActionsNotes:
     def showNoteSelectId(self):
         for record in ActionsNotes.productsBoxId.get_children():
             ActionsNotes.productsBoxId.delete(record)
+        for record in ActionsNotes.productsBox.get_children():
+            ActionsNotes.productsBox.delete(record)
         # * Create Note
         updateNoteName = Label(root.showNoteFrameSelectId, text="Id")
         updateNoteName.grid(row=1, column=0, sticky=W)
@@ -737,6 +737,8 @@ class ActionsNotes:
     def showNoteSelectName(self):
         for record in ActionsNotes.productsBoxId.get_children():
             ActionsNotes.productsBoxId.delete(record)
+        for record in ActionsNotes.productsBox.get_children():
+            ActionsNotes.productsBox.delete(record)
         # * Create Note
         updateNoteName = Label(root.showNoteFrameSelectId, text="Name")
         updateNoteName.grid(row=1, column=0, sticky=W)
@@ -785,26 +787,28 @@ class ActionsNotes:
         notess = note.showNameSelector(ActionsNotes.NombreGet.get())
         # search = note.showIdSelector()
 
-        if (notess):
-            ActionsNotes.NombreGet.set(""),
-            # ActionsNotes().showNoteId()
-        else:
-            MessageBox.showwarning("Alerta", "ERROR")
-        # print(notes)
-        if (not str(notess['Telefonos']).find("casa") == -1):
-                notas = notess['Telefonos'].pop('casa')
-        else:
-            notas =""
-        if('Tesis' in notess):
-            tesis =notess['Tesis']
-        else:
-            tesis =notess['Tesistas']['Tesis']
-            tesista = notess['Tesistas']['nombre']['pila']
-            tesistaAP = notess['Tesistas']['nombre']['AP']
-        ActionsNotes.productsBoxId.insert(
-                '', 0, text=notess['_id'], values=(notess['Nombre']['pila'], notess['Nombre']['AM'], notess['Nombre']['AP'],
-                            notess['RFC'], notess['Sueldo'], notess['Sexo'], notess['Materias'], notess['Telefonos']['celular'],
-                            notas, notess['Pasatiempos'], tesis, tesista, tesistaAP))
+        
+        for notes in notess:
+            if (notes):
+                ActionsNotes.NombreGet.set(""),
+                # ActionsNotes().showNoteId()
+            else:
+                MessageBox.showwarning("Alerta", "ERROR")
+            # print(notes)
+            if (not str(notes['Telefonos']).find("casa") == -1):
+                    notas = notes['Telefonos'].pop('casa')
+            else:
+                notas =""
+            if('Tesis' in notes):
+                tesis =notes['Tesis']
+            else:
+                tesis =notes['Tesistas']['Tesis']
+                tesista = notes['Tesistas']['nombre']['pila']
+                tesistaAP = notes['Tesistas']['nombre']['AP']
+            ActionsNotes.productsBoxId.insert(
+                '', 0, text=notes['_id'], values=(notes['Nombre']['pila'], notes['Nombre']['AM'], notes['Nombre']['AP'],
+                            notes['RFC'], notes['Sueldo'], notes['Sexo'], notes['Materias'], notes['Telefonos']['celular'],
+                            notas, notes['Pasatiempos'], tesis, tesista, tesistaAP))
         # ActionsNotes.productsBoxId.Treeview(height = 10, columns = ('#1','#2','#3','#4'))
         ActionsNotes.productsBoxId.grid(row=1, column=0, columnspan=5)
         ActionsNotes.productsBoxId.heading("#0", text="Id", anchor=CENTER)
@@ -868,6 +872,8 @@ class ActionsNotes:
     def showNoteSelectMatter(self):
         for record in ActionsNotes.productsBoxMatter.get_children():
             ActionsNotes.productsBoxMatter.delete(record)
+        for record in ActionsNotes.productsBox.get_children():
+            ActionsNotes.productsBox.delete(record)
         # * Create Note
         updateNoteName = Label(root.showNoteFrameSelectId, text="Matter")
         updateNoteName.grid(row=1, column=0, sticky=W)
@@ -973,7 +979,8 @@ class ActionsNotes:
         root.root.mainloop()
 
     def showNoteSalary(self):
-
+        for record in ActionsNotes.productsBox.get_children():
+            ActionsNotes.productsBox.delete(record)
         note = modelNotes.Note()
         # print(ActionsNotes.NombreGet.get())
         notes = note.showSalarySelector()
@@ -1044,10 +1051,10 @@ class ActionsNotes:
 
         # * Create Note
 
-        deleteNoteName = Label(root.deleteNoteFrame, text="Name")
+        deleteNoteName = Label(root.deleteNoteFrame, text="Id")
         deleteNoteName.grid(row=1, column=0, sticky=W)
         deleteNoteNameEntry = Entry(
-            root.deleteNoteFrame, textvariable=ActionsNotes.title)
+            root.deleteNoteFrame, textvariable=ActionsNotes.idDelete)
         deleteNoteNameEntry.grid(row=1, column=1, sticky=W)
 
         botonEnterNotes = Button(root.deleteNoteFrame, text="Delete",
@@ -1078,6 +1085,7 @@ class ActionsNotes:
             width=10, bg="#2F83BA", fg="#fff", font=("arial", 10), pady=3, padx=7)
 
         root.showNoteFrame.grid_remove()
+        root.menuFrame.grid_remove()
 
         root.root.mainloop()
 
@@ -1134,19 +1142,9 @@ class ActionsNotes:
         root.updateNoteFrame2.grid_remove()
         root.deleteNoteFrame.grid_remove()
         
+        
 
         root.root.mainloop()
-
-    # def searchNoteMethod(self):
-    #     note = modelNotes.Note(ActionsNotes.idGet.get())
-    #     #print(ActionsNotes.idGet.get())
-    #     search = note.showIdSelector()
-
-    #     if (search):
-    #         ActionsNotes.idGet.set(""),
-    #         ActionsNotes().showNoteId(ActionsNotes.idGet.get())
-    #     else:
-    #         MessageBox.showwarning("Alerta", "ERROR")
 
     def createNoteMethod(self):
 
@@ -1227,14 +1225,12 @@ class ActionsNotes:
         else:
             MessageBox.showwarning("Alerta", "ERROR")
 
-
     def deleteNoteMethod(self,):
-        note = modelNotes.Note([0], ActionsNotes.title.get())
-        delete = note.delete()
+        note = modelNotes.Note()
+        delete = note.delete(ActionsNotes.idDelete.get())
 
-        if (delete[0] >= 1):
-            ActionsNotes.title.set("")
-            ActionsNotes.createNoteDescEntry.delete("1.0", END)
+        if (delete):
+            ActionsNotes.idDelete.set("")
             ActionsNotes().menu()
         else:
             MessageBox.showwarning("Alerta", "ERROR")

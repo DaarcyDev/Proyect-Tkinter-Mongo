@@ -1,18 +1,12 @@
-from tkinter import StringVar
-from traceback import print_tb
 import conection as conection
 
-# creamos las conexiones
 connect = conection.connect()
-# database = connect[0]
-# cursor = connect[1]
+
 
 
 class Note:
     def __init__(self,Id="", Nombre="", AM="", AP="", RFC="", Sueldo="",Sexo="", Materias="", TelC="", 
                     TelCasa="", Pasatiempos="", NombreCreador="", TesisAM="", TesisNombre=""):
-        # self.idGet=idGet
-        # self.NombreGet=NombreGet
         self.Id = Id
         self.Nombre = Nombre
         self.AP = AP
@@ -29,7 +23,6 @@ class Note:
         self.TesisAM = TesisAM
         self.TesisNombre = TesisNombre
         
-
     def save(self):
 
         x = connect.find().sort('_id', -1)[0]
@@ -70,9 +63,6 @@ class Note:
         #note = (self.Nombre, self.AP, self.AM)
 
         connect.insert_one(mydict)
-        # cursor.execute(sql, note)
-        # database.commit()
-        # return [cursor.rowcount,self]
 
     def show(self):
         # print("hola")
@@ -84,8 +74,9 @@ class Note:
 
         # result = cursor.fetchall()
         return result
+    
     def showNameSelector(self,NombreGet):
-        result = connect.find_one({"Nombre.pila":f"{NombreGet}"})
+        result = connect.find({"Nombre.pila":f"{NombreGet}"})
         # print(f"Nombre.pila:{NombreGet}")
         return result
 
@@ -116,17 +107,12 @@ class Note:
         result = connect.find_one({"_id":f"{idGet}"})
         return result
 
-    def delete(self):
-        sql = f"DELETE FROM notas WHERE usuario_id ={self.usuario_id} AND titulo LIKE '%{self.titulo}%'"
-        # cursor.execute(sql)
-        # database.commit()
-        # return [cursor.rowcount,self]
+    def delete(self,idGet):
+        result = connect.delete_one({"_id":f"{idGet}"})
+        #print(f"_id{idGet}")
+        return result
 
     def update(self):
-        #!update({"_id":"33"},{$set:{"RFC":"asd","Sueldo":"3000"}})
-        #!> e.update({"_id":"33"},{$set:{"Nombre":{"pila":"qwe"}}})
-
-        # print(self.Id,self.Nombre,self.RFC)
         myquery = {"_id":self.Id}
         newvalues = {"$set":{"Nombre": {
                                 "pila": self.Nombre,
@@ -150,8 +136,4 @@ class Note:
                                 "Tesis": self.TesisNombre
                             }}}
         result = connect.update_one(myquery,newvalues)
-        # sql = f"UPDATE notas SET descripcion = '{self.descripcion}' WHERE titulo = '{self.titulo}'"
-        # cursor.execute(sql)
-        # database.commit()
-        # return [cursor.rowcount,self]
         return result
